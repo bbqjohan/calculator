@@ -14,6 +14,7 @@ public class Calculator {
         SUBTRACT,
         MULTIPLY,
         DIVIDE,
+        MODULUS
     }
 
     public Calculator() {
@@ -46,6 +47,9 @@ public class Calculator {
                     break;
                 case DIVIDE:
                     total = divideNumbers(nextNumbers());
+                    break;
+                case MODULUS:
+                    total = modulusNumbers(nextNumbers());
                     break;
             }
 
@@ -129,6 +133,26 @@ public class Calculator {
     }
 
     /**
+     * Sequentially performs the modulus operation on a list of numbers.
+     *
+     * @param numbers The numbers to perform modulus on.
+     * @return The result of the sequential modulus operations.
+     */
+    private double modulusNumbers(double[] numbers) {
+        double result = 0;
+
+        if (numbers.length > 0) {
+            result = numbers[0];
+        }
+
+        for (int i = 1; i < numbers.length; i++) {
+            result %= numbers[i];
+        }
+
+        return toPrecision(result);
+    }
+
+    /**
      * Takes a number and cuts of any decimals after the fourth.
      *
      * @param num The number to cut down to precision.
@@ -193,7 +217,7 @@ public class Calculator {
         Operator operator = null;
 
         while (operator == null) {
-            System.out.print("Välj en operator (+, -, /, *): ");
+            System.out.print("Välj en operator (+, -, /, *, %): ");
             String input = scanner.nextLine().trim();
 
             switch (input) {
@@ -208,6 +232,9 @@ public class Calculator {
                     break;
                 case "/":
                     operator = Operator.DIVIDE;
+                    break;
+                case "%":
+                    operator = Operator.MODULUS;
                     break;
                 default: {
                     maybeExit(input);
