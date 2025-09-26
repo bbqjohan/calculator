@@ -6,7 +6,8 @@ public class Calculator {
 
     private enum Operator {
         ADD,
-        SUBTRACT
+        SUBTRACT,
+        MULTIPLICATION
     }
 
     public Calculator() {
@@ -15,7 +16,7 @@ public class Calculator {
     }
 
     /**
-     * Start the calculator.
+     * Start the calculator. The calculator has a precision of 4 decimals.
      */
     public void run() {
         System.out.println("Välkommen till kalkylatorn!");
@@ -38,6 +39,9 @@ public class Calculator {
                     break;
                 case SUBTRACT:
                     result = num1 - num2;
+                    break;
+                case MULTIPLICATION:
+                    result = Math.floor((num1 * num2) * 10000) / 10000;
                     break;
             }
 
@@ -80,6 +84,7 @@ public class Calculator {
             switch (input) {
                 case "+": return Operator.ADD;
                 case "-": return Operator.SUBTRACT;
+                case "*": return Operator.MULTIPLICATION;
                 default: {
                     maybeExit(input);
                     System.out.println("Det där är inte en giltig operator! (+, -, /, *)");
