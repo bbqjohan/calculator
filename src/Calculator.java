@@ -7,7 +7,8 @@ public class Calculator {
     private enum Operator {
         ADD,
         SUBTRACT,
-        MULTIPLICATION
+        MULTIPLICATION,
+        DIVIDE,
     }
 
     public Calculator() {
@@ -42,6 +43,9 @@ public class Calculator {
                     break;
                 case MULTIPLICATION:
                     result = Math.floor((num1 * num2) * 10000) / 10000;
+                    break;
+                case DIVIDE:
+                    result = Math.floor((num1 / num2) * 10000) / 10000;
                     break;
             }
 
@@ -85,6 +89,7 @@ public class Calculator {
                 case "+": return Operator.ADD;
                 case "-": return Operator.SUBTRACT;
                 case "*": return Operator.MULTIPLICATION;
+                case "/": return Operator.DIVIDE;
                 default: {
                     maybeExit(input);
                     System.out.println("Det där är inte en giltig operator! (+, -, /, *)");
