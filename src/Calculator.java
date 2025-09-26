@@ -7,7 +7,7 @@ public class Calculator {
     private enum Operator {
         ADD,
         SUBTRACT,
-        MULTIPLICATION,
+        MULTIPLY,
         DIVIDE,
     }
 
@@ -41,7 +41,7 @@ public class Calculator {
                 case SUBTRACT:
                     result = num1 - num2;
                     break;
-                case MULTIPLICATION:
+                case MULTIPLY:
                     result = Math.floor((num1 * num2) * 10000) / 10000;
                     break;
                 case DIVIDE:
@@ -88,7 +88,7 @@ public class Calculator {
             switch (input) {
                 case "+": return Operator.ADD;
                 case "-": return Operator.SUBTRACT;
-                case "*": return Operator.MULTIPLICATION;
+                case "*": return Operator.MULTIPLY;
                 case "/": return Operator.DIVIDE;
                 default: {
                     maybeExit(input);
