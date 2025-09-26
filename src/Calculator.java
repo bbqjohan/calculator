@@ -5,7 +5,8 @@ public class Calculator {
     private double result;
 
     private enum Operator {
-        ADD
+        ADD,
+        SUBTRACT
     }
 
     public Calculator() {
@@ -34,6 +35,9 @@ public class Calculator {
             switch (operator) {
                 case ADD:
                     result = num1 + num2;
+                    break;
+                case SUBTRACT:
+                    result = num1 - num2;
                     break;
             }
 
@@ -75,6 +79,7 @@ public class Calculator {
 
             switch (input) {
                 case "+": return Operator.ADD;
+                case "-": return Operator.SUBTRACT;
                 default: {
                     maybeExit(input);
                     System.out.println("Det där är inte en giltig operator! (+, -, /, *)");
