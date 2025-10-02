@@ -68,7 +68,7 @@ public class Calculator {
      * @return The result of adding all numbers together.
      */
     private double addNumbers(double[] numbers) {
-        return Arrays.stream(numbers).sum();
+        return toPrecision(Arrays.stream(numbers).sum());
     }
 
     /**
@@ -89,7 +89,7 @@ public class Calculator {
             result -= numbers[i];
         }
 
-        return result;
+        return toPrecision(result);
     }
 
     /**
